@@ -3,6 +3,6 @@
   - 'default'
 :schedule:
   ScheduleShowWorker:
-    every: 24h
+    chron: '0 0 * * *' #every_day at 12:00 am
     queue: default
     description: "Schedule notification"

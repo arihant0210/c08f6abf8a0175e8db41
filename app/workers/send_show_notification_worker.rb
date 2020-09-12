@@ -1,5 +1,6 @@
 class SendShowNotificationWorker
 	include Sidekiq::Worker
+	include Sidekiq::Status::Worker
 
 	def perform(show_id)
 		show = Show.find_by(id: show_id)
