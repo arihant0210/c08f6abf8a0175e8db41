@@ -1,0 +1,25 @@
+<%= form_tag(root_path, method: :get) do %>
+  <%= text_field_tag :search_term %>
+  <%= submit_tag :search %>
+<% end %>
+<table style="width:100%">
+  <tr>
+    <th>Channel Name</th>
+    <th>Show Name</th>
+    <th>Show Time</th>
+    <th>Action</th>
+  </tr>
+
+  <% @shows.each do |show| %>
+    <tr>
+      <td><%= show.channel&.name %></td>
+      <td><%= show.name %></td>
+      <td><%= show.time %></td>
+      <% if show.favourite_for(current_user)  %>
+        <td><%= link_to "Remove Favourite", remove_favourite_path(show_id: show.id) %></td>
+      <% else %>
+        <td><%= link_to "Add Favourite", add_favourite_path(show_id: show.id) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

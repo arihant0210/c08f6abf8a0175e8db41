@@ -1,0 +1,8 @@
+:dynamic: true
+:queues:
+  - 'default'
+:schedule:
+  ScheduleShowWorker:
+    every: 24h
+    queue: default
+    description: "Schedule notification"
